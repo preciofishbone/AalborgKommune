@@ -1,0 +1,1 @@
+{"Id":"63b3503b-d85b-4111-ab8f-eb980a66ebde","Name":"Aalborg","Type":"Extension","Projects":[{"Path":"Aalborg.Web/Aalborg.Web.csproj","BaseImage":"preciofishbone/omnia:6.10-webapp","ServiceType":0}]}

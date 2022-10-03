@@ -1,0 +1,20 @@
+{
+  "name": "Aalborg.Web",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc -v && tsc && omniafx build",
+    "build-release": "npm run build -- --docs --minify",
+    "omnia-watch": "tsc -w"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "4.0.2",
+    "@omnia/fx-models": "6.11.24",
+    "@omnia/fx-sp": "6.11.24",
+    "@omnia/fx-spfx": "6.11.24",
+    "@omnia/tooling-vue": "6.11.24"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
