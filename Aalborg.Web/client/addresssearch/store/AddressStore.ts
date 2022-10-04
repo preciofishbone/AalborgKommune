@@ -43,19 +43,15 @@ export class AddressStore extends Store
      * Implementation of mutations
      */
     mutations = {
-        addAddress : this.mutation((address)=>{
-
-        })
+        
     }
     /**
      * Implementation of actions
      */
     actions = {
-        loadAddress: this.action(() => {
-            return new Promise<null>((resolve, reject) => {
-                //TODO: Do some promise based operations like fething from web api
-                Promise.resolve("Updated value");
-            });
+        loadAddress: this.action(async () => {
+            const res = await this.service.getAddress();
+            this.addressState.mutate(res);
         })
     }
 

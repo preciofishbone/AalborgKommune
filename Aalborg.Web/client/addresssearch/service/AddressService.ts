@@ -1,5 +1,6 @@
 import { InstanceLifetimes, IHttpApiOperationResult } from '@omnia/fx-models';
 import { Injectable, HttpClientConstructor, HttpClient, Inject } from '@omnia/fx';
+import { Address } from '../model/Address';
 
 @Injectable({ lifetime: InstanceLifetimes.Singelton })
 export class AddressService {
@@ -12,7 +13,7 @@ export class AddressService {
     }
 
     async getAddress() {
-        const response = await this.httpClient.get("/api/addresssearch");
+        const response = await this.httpClient.get<Array<Address>>("/api/addresssearch");
         return response.data;
     };
 }
