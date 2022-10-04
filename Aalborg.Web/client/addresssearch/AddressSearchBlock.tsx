@@ -1,12 +1,15 @@
 import { Component } from 'vue-property-decorator';
-import { vueCustomElement, IWebComponentInstance, WebComponentBootstrapper } from "@omnia/fx";
+import { vueCustomElement, IWebComponentInstance, WebComponentBootstrapper,Inject } from "@omnia/fx";
 import { StyleFlow, VueComponentBase, BlockSettingsReader } from '@omnia/fx/ux';
 import { AddressSearchBlockStyles } from './AddressSearchBlock.css';
 import { AddressSearchBlockBlockSettings } from './AddressSearchBlockSettings';
+import { AzureAdInternalUserTypeObject } from '@omnia/fx-models';
+import { AddressStore } from './store/AddressStore';
 
 @Component
 export default class AddressSearchBlock extends VueComponentBase implements IWebComponentInstance {
     
+    @Inject(AddressStore) addressStore : AddressStore;
 
     private AddressSearchBlockClasses = StyleFlow.use(AddressSearchBlockStyles);
 

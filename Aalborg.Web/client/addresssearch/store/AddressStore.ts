@@ -2,12 +2,15 @@ import { Store } from '@omnia/fx/stores';
 import { Injectable, Inject } from '@omnia/fx';
 import { InstanceLifetimes } from '@omnia/fx-models';
 import { Address } from '../model/Address';
+import { AddressService } from '../service/AddressService';
 
 @Injectable({
     onStartup: (storeType) => { Store.register(storeType, InstanceLifetimes.Scoped) }
 })
 export class AddressStore extends Store
 {
+    @Inject(AddressService) service : AddressService;
+    
     private testState = this.state<Array<Address>>([]);
    
     constructor()
