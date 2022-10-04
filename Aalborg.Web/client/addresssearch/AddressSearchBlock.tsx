@@ -34,7 +34,7 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
     renderAddresses(h){
         let addresses = this.addressStore.getters.addresses().map((item)=>{
             return(
-                <div>{item.title}</div>
+                <div>{item.vejnavn}</div>
             )    
         })
         return (<div>

@@ -2,6 +2,6 @@
 {
     public class Address
     {
-        public string Title { get; set; }
+        public string vejnavn { get; set; }
     }
 }

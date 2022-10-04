@@ -1,3 +1,3 @@
 export interface Address {
-    title:string;    
+    vejnavn:string;    
 }

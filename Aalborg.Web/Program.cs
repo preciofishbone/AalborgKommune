@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Omnia.Fx.HostConfiguration;
 using Omnia.Fx.HostConfiguration.Extensions;
 using Omnia.Fx.NetCore.WebApp.Hosting;
+using Aalborg.Web.Services;
 
 namespace Aalborg.Web
 {
@@ -52,6 +53,8 @@ namespace Aalborg.Web
                             {
                                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
                             });
+
+                            services.AddHttpClient<AddressService>();
                         })
                         .ConfigureWebHost(webHostBuilder => {
                             webHostBuilder.Configure((ctx, app) =>

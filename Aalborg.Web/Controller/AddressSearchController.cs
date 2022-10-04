@@ -1,4 +1,5 @@
 ﻿using Aalborg.Models;
+using Aalborg.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,22 +10,18 @@ namespace Aalborg.Web.Controller
     [ApiController]
     public class AddressSearchController : ControllerBase
     {
+
+        public AddressSearchController( AddressService address) {
+            AddressService = address;
+        }
+
+        public AddressService AddressService { get; }
+
         // GET: api/<ValuesController>
         [HttpGet]
         public async Task<IEnumerable<Address>> Get()
         {
-            await Task.Delay(5000);
-            return new List<Address>
-            {
-                new Address
-                {
-                    Title = "Address 1"
-                },
-                 new Address
-                {
-                    Title = "Address 2"
-                }
-            };
+            return await AddressService.GetAddresses();
         }
 
     }
