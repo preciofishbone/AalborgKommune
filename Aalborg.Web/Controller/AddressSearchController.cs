@@ -5,7 +5,7 @@ namespace Aalborg.Web.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class AddressSearchController : ControllerBase
     {
         // GET: api/<ValuesController>
         [HttpGet]
