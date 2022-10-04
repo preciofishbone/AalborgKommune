@@ -19,9 +19,9 @@ namespace Aalborg.Web.Controller
 
         // GET: api/<ValuesController>
         [HttpGet]
-        public async Task<IEnumerable<Address>> Get()
+        public async Task<IEnumerable<Address>> Get(string name)
         {
-            return await AddressService.GetAddresses();
+            return await AddressService.GetAddresses(name);
         }
 
     }
