@@ -14,6 +14,8 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
 
     private AddressSearchBlockClasses = StyleFlow.use(AddressSearchBlockStyles);
 
+    private loading = true;
+
     @BlockSettingsReader<AddressSearchBlockBlockSettings>({
         defaultValue: { title: 'my block title'},
         editElement: "aalborg-address-search-settings"

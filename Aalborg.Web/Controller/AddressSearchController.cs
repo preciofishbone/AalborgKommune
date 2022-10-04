@@ -1,6 +1,7 @@
 ﻿using Aalborg.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Aalborg.Web.Controller
 {
@@ -10,8 +11,9 @@ namespace Aalborg.Web.Controller
     {
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<Address> Get()
+        public async Task<IEnumerable<Address>> Get()
         {
+            await Task.Delay(5000);
             return new List<Address>
             {
                 new Address
