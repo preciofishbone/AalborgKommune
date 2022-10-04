@@ -15,6 +15,7 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
     private AddressSearchBlockClasses = StyleFlow.use(AddressSearchBlockStyles);
 
     private loading = true;
+    private seachString: string = "";
 
     @BlockSettingsReader<AddressSearchBlockBlockSettings>({
         defaultValue: { title: 'my block title'},
@@ -45,6 +46,19 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
     render(h) {
         return (
             <div class={this.AddressSearchBlockClasses.container}>
+                <v-text-field
+                    filled
+                    v-model={this.seachString}
+                    onChange={(value) => {
+                        this.loading = true;
+                        this.addressStore.actions.search.dispatch(value).then(() => {
+                            this.loading = false;
+                            })
+                        }
+                    }
+                >
+                </v-text-field>
+
                 <v-skeleton-loader
                     dark={true}
                     loading={this.loading}
