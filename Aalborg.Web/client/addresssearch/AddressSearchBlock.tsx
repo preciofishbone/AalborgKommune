@@ -24,6 +24,9 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
 
     mounted() {
         WebComponentBootstrapper.registerElementInstance(this, this.$el);
+        this.addressStore.actions.loadAddress.dispatch().then(() => {
+            this.loading = false;
+        })
     }
 
     
@@ -42,7 +45,14 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
     render(h) {
         return (
             <div class={this.AddressSearchBlockClasses.container}>
-                {this.renderAddresses(h)}                
+                <v-skeleton-loader
+                    dark={true}
+                    loading={this.loading}
+                    height="200"
+                    type="list-item-avatar@2"           
+                >
+                    {this.renderAddresses(h)}                
+                </v-skeleton-loader>
             </div>
         )
     }
