@@ -37,3 +37,4 @@ We use typescript all in except for taskrunner
 *.key
 *.crt
 *.user
+Aalborg.Web/appsettings.local.json
