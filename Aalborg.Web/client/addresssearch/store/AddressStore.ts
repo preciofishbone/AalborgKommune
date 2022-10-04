@@ -11,7 +11,7 @@ export class AddressStore extends Store
 {
     @Inject(AddressService) service : AddressService;
     
-    private testState = this.state<Array<Address>>([]);
+    private addressState = this.state<Array<Address>>([]);
    
     constructor()
     {
@@ -34,8 +34,8 @@ export class AddressStore extends Store
     * Implementation of getters
     */
     getters = {
-        globalSettings: () => {
-            return this.testState;
+        addresses: () => {
+            return this.addressState.state;
         }
     }
 
