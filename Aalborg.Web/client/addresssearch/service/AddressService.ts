@@ -12,8 +12,8 @@ export class AddressService {
     constructor() {
     }
 
-    async getAddress() {
-        const response = await this.httpClient.get<Array<Address>>("/api/addresssearch");
+    async getAddress(name: string) {
+        const response = await this.httpClient.get<Array<Address>>(`/api/addresssearch?name=${name}`);
         return response.data;
     };
 }
