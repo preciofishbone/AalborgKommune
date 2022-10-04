@@ -16,7 +16,4 @@ export class AddressService {
                 Promise.resolve("result");
         });
     };
-
-
-
 }
