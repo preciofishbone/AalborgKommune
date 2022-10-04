@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aalborg.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace Aalborg.Web.Controller
@@ -9,9 +10,19 @@ namespace Aalborg.Web.Controller
     {
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Address> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<Address>
+            {
+                new Address
+                {
+                    Title = "Address 1"
+                },
+                 new Address
+                {
+                    Title = "Address 2"
+                }
+            };
         }
 
     }

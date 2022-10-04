@@ -29,6 +29,10 @@
     <PackageReference Include="Omnia.Fx.NetCore.WebApp" Version="6.11.24" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aalborg.Models\Aalborg.Models.csproj" />
+  </ItemGroup>
+
    <!--***************************************************************************************-->
   <!--**** Omnia Build Tasks ****************************************************************-->
   <!--***************************************************************************************-->

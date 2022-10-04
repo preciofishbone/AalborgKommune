@@ -1,19 +1,18 @@
 import { InstanceLifetimes, IHttpApiOperationResult } from '@omnia/fx-models';
 import { Injectable, HttpClientConstructor, HttpClient, Inject } from '@omnia/fx';
 
-@Injectable({ lifetime: InstanceLifetimes.Transient })
+@Injectable({ lifetime: InstanceLifetimes.Singelton })
 export class AddressService {
 
     @Inject<HttpClientConstructor>(HttpClient, {
-        configPromise: HttpClient.createOmniaServiceRequestConfig("572c2c36-c676-4ebf-9c2b-ebc7c98584c5")
+        configPromise: HttpClient.createOmniaServiceRequestConfig("4f7389d8-3d25-4e5f-9b5a-2651fc1d390e")
     }) protected httpClient: HttpClient;
 
     constructor() {
     }
 
-    getSomething() {
-        return new Promise<null>((resolve, reject) => {
-                Promise.resolve("result");
-        });
+    async getAddress() {
+        const response = await this.httpClient.get("/api/addresssearch");
+        return response.data;
     };
 }
