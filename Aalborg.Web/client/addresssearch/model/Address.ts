@@ -1,3 +1,5 @@
 export interface Address {
-    vejnavn:string;    
+    vejnavn: string;
+    husnr:string;    
+
 }

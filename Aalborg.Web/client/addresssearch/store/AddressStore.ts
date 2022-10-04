@@ -50,11 +50,11 @@ export class AddressStore extends Store
      */
     actions = {
         loadAddress: this.action(async () => {
-            const res = await this.service.getAddress();
-            this.addressState.mutate(res);
+         
         }),
         search: this.action(async (searchString: string) => {
-
+            const res = await this.service.getAddress(searchString);
+            this.addressState.mutate(res);
         })
     }
 

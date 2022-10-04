@@ -14,7 +14,7 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
 
     private AddressSearchBlockClasses = StyleFlow.use(AddressSearchBlockStyles);
 
-    private loading = true;
+    private loading = false;
     private seachString: string = "";
 
     @BlockSettingsReader<AddressSearchBlockBlockSettings>({
@@ -25,9 +25,7 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
 
     mounted() {
         WebComponentBootstrapper.registerElementInstance(this, this.$el);
-        this.addressStore.actions.loadAddress.dispatch().then(() => {
-            this.loading = false;
-        })
+       
     }
 
     
@@ -35,7 +33,15 @@ export default class AddressSearchBlock extends VueComponentBase implements IWeb
     renderAddresses(h){
         let addresses = this.addressStore.getters.addresses().map((item)=>{
             return(
-                <div>{item.vejnavn}</div>
+                <v-row>
+                    <v-col cols="6">
+                        {item.vejnavn}
+                    </v-col>
+                    <v-col cols="6">
+                        {item.husnr}
+                    </v-col>
+                </v-row>
+
             )    
         })
         return (<div>
